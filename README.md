@@ -1,1 +1,1 @@
-# socail-network-api
+# Social Network API
