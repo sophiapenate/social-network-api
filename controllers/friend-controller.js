@@ -7,12 +7,19 @@ const friendController = {
       { $addToSet: { friends: params.friendId } },
       { new: true }
     )
+      .populate({
+        path: "friends",
+        select: "-__v",
+      })
+      .select("-__v")
       .then((dbData) => {
-          if (!dbData) {
-              res.status(404).json({ message: `No user found with id ${params.userId}!` });
-              return;
-          }
-          res.json(dbData)
+        if (!dbData) {
+          res
+            .status(404)
+            .json({ message: `No user found with id ${params.userId}!` });
+          return;
+        }
+        res.json(dbData);
       })
       .catch((err) => {
         console.log(err);
@@ -26,12 +33,19 @@ const friendController = {
       { $pull: { friends: params.friendId } },
       { new: true }
     )
+      .populate({
+        path: "friends",
+        select: "-__v",
+      })
+      .select("-__v")
       .then((dbData) => {
-          if (!dbData) {
-              res.status(404).json({ message: `No user found with id ${params.userId}!` });
-              return;
-          }
-          res.json(dbData)
+        if (!dbData) {
+          res
+            .status(404)
+            .json({ message: `No user found with id ${params.userId}!` });
+          return;
+        }
+        res.json(dbData);
       })
       .catch((err) => {
         console.log(err);

@@ -3,6 +3,11 @@ const { User } = require("../models");
 const userController = {
   getAllUsers(req, res) {
     User.find()
+      .populate({
+        path: "friends",
+        select: "-__v",
+      })
+      .select("-__v")
       .then((dbData) => res.json(dbData))
       .catch((err) => {
         console.log(err);
@@ -12,6 +17,11 @@ const userController = {
 
   getUserById({ params }, res) {
     User.findById(params.id)
+      .populate({
+        path: "friends",
+        select: "-__v",
+      })
+      .select("-__v")
       .then((dbData) => {
         if (!dbData) {
           res
@@ -38,6 +48,11 @@ const userController = {
 
   updateUser({ params, body }, res) {
     User.findByIdAndUpdate(params.id, body, { new: true, runValidators: true })
+      .populate({
+        path: "friends",
+        select: "-__v",
+      })
+      .select("-__v")
       .then((dbData) => {
         if (!dbData) {
           res
@@ -62,7 +77,7 @@ const userController = {
             .json({ message: `No user found with id ${params.id}!` });
           return;
         }
-        res.json({ message: 'User successfully deleted!' });
+        res.json({ message: "User successfully deleted!" });
       })
       .catch((err) => {
         console.log(err);
