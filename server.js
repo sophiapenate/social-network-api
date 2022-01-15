@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(require("./routes"));
 
-mongoose.connect("mongodb://localhost:27017/myapp");
+mongoose.connect("mongodb://localhost:27017/social-network-api");
 
 // log mongo queries being executed
 mongoose.set("debug", true);
