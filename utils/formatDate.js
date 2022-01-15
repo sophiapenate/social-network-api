@@ -1,6 +1,9 @@
 const formatDate = (date) => {
   const options = {
-    month: "short",
+    hour: "numeric",
+    minute: "numeric",
+    weekday: "long",
+    month: "long",
     day: "numeric",
     year: "numeric",
   };
