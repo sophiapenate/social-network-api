@@ -7,6 +7,10 @@ const userController = {
         path: "friends",
         select: "-__v",
       })
+      .populate({
+        path: "thoughts",
+        select: "-__v",
+      })
       .select("-__v")
       .then((dbData) => res.json(dbData))
       .catch((err) => {
@@ -19,6 +23,10 @@ const userController = {
     User.findById(params.id)
       .populate({
         path: "friends",
+        select: "-__v",
+      })
+      .populate({
+        path: "thoughts",
         select: "-__v",
       })
       .select("-__v")
@@ -50,6 +58,10 @@ const userController = {
     User.findByIdAndUpdate(params.id, body, { new: true, runValidators: true })
       .populate({
         path: "friends",
+        select: "-__v",
+      })
+      .populate({
+        path: "thoughts",
         select: "-__v",
       })
       .select("-__v")

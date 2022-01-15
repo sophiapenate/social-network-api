@@ -11,6 +11,10 @@ const friendController = {
         path: "friends",
         select: "-__v",
       })
+      .populate({
+        path: "thoughts",
+        select: "-__v",
+      })
       .select("-__v")
       .then((dbData) => {
         if (!dbData) {
@@ -35,6 +39,10 @@ const friendController = {
     )
       .populate({
         path: "friends",
+        select: "-__v",
+      })
+      .populate({
+        path: "thoughts",
         select: "-__v",
       })
       .select("-__v")
