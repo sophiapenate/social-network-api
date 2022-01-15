@@ -34,7 +34,15 @@ const thoughtController = {
           { username: body.username },
           { $push: { thoughts: _id } },
           { new: true }
-        );
+        )
+        .populate({
+          path: "friends",
+          select: "-__v",
+        })
+        .populate({
+          path: "thoughts",
+          select: "-__v",
+        });
       })
       .then((dbData) => {
         if (!dbData) {
