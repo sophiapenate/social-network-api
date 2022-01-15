@@ -1,4 +1,3 @@
-const { message } = require("statuses");
 const { User } = require("../models");
 
 const userController = {
