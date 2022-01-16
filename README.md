@@ -3,8 +3,10 @@
 ## Description
 API for a social media network where users can create accounts, add each other as friends, post thoughts, and post reactions to thoughts.
 
-## Video Walkthrough
-The walkthough video demonstrates all of this API's CRUD routes in Insomnia. [Watch it here](https://watch.screencastify.com/v/foL5Dzfcw4TfXBMmwkN0)
+## Video Walkthroughs
+The walkthough video demonstrates all of this API's CRUD routes in Insomnia. [Watch it here](https://watch.screencastify.com/v/foL5Dzfcw4TfXBMmwkN0).
+
+[Watch here](https://watch.screencastify.com/v/GZixIKfOnua4fVRSuLan) to view the cascading delete functionality, which deletes all of a user's thoughts when the user is deleted.
 
 ## Technologies Used
 * Express.js
