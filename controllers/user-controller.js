@@ -90,10 +90,7 @@ const userController = {
           return;
         }
 
-        return dbData.thoughts;
-      })
-      .then((thoughtsArr) => {
-        Thought.remove({ _id: { $in: thoughtsArr } })
+        Thought.remove({ _id: { $in: dbData.thoughts } })
           .then(res.json({ message: "User successfully deleted!" }))
           .catch((err) => {
             console.log(err);
